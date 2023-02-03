@@ -2,6 +2,8 @@ core.Microsoft*
 core.mongo*
 core.python*
 env.py
+*.sqlite3
+*.psyc
 __pycache__/
 *.py[cod]
 node_modules/
