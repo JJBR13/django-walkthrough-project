@@ -39,6 +39,14 @@
         </div>
     {% endif %}
 
-  </body>
+    {% block page_header %}
+    {% endblock %}
 
+    {% block content%}
+    {% endblock %}
+
+    {% block postload.js %}
+    {% endblock %}
+
+  </body>
 </html>
