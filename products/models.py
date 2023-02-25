@@ -2,6 +2,9 @@ from django.db import models
 
 
 class Category(models.Model):
+    # Class meta can be used in class, allowing you to change siplay name.
+    class Meta:
+        verbose_name_plural = 'Categories'
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
