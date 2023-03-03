@@ -18,7 +18,7 @@ def add_to_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     if item_id in list(bag.keys()):
-        # update the quantity if already exists 
+        # update the quantity if already exists
         bag[item_id] += quantity
     else:
         # add the item to the bag
