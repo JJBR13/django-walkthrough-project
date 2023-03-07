@@ -84,7 +84,7 @@ def remove_from_bag(request, item_id):
         if size:
             del bag[item_id]['items_by_size'][size]
             # if it was the only size the had in bag
-            if not bad[item_id]['items_by_size']:
+            if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
         else:
             # no size
@@ -94,4 +94,5 @@ def remove_from_bag(request, item_id):
         request.session['bag'] = bag
         return HttpResponse(status=200)
     except Exception as e:
+        print(e)
         return HttpResponse(status=500)
