@@ -64,12 +64,12 @@ def adjust_bag(request, item_id):
     if size:
         if quantity > 0:
             bag[item_id]['items_by_size'][size] = quantity
-            messages.success(request, f'Updated size {size.uppper()} {product.name} quantity to {bag[item_id]["items_by_size"][size]}')
+            messages.success(request, f'Updated size {size.upper()} {product.name} quantity to {bag[item_id]["items_by_size"][size]}')
         else:
             del bag[item_id]['items_by_size'][size]
             if not bad[item_id]['items_by_size']:
                 bag.pop(item_id)
-                messages.success(request, f'Removed size {size.uppper()} {product.name} from your bag')
+                messages.success(request, f'Removed size {size.upper()} {product.name} from your bag')
 
     else:
         # no quanity
@@ -103,7 +103,7 @@ def remove_from_bag(request, item_id):
             # if it was the only size the had in bag
             if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
-                messages.success(request, f'Removed size {size.uppper()} {product.name} from your bag')
+            messages.success(request, f'Removed size {size.upper()} {product.name} from your bag')
 
         else:
             # no size
