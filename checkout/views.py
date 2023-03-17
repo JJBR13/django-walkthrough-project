@@ -54,7 +54,12 @@ def checkout(request):
         order_form = OrderForm(form_data)
         # save if form is valid
         if order_form.is_valid():
-            order = order_form.save()
+            # commit = false, stops mutliple save events on db
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.orignal_bag = json.dumps(bag)
+            order.save()
             # iterrate through items to create line items
             for item_id, item_data in bag.items():
                 try:
