@@ -12,7 +12,7 @@ class OrderAdmin(admin.ModelAdmin):
 
     readonly_fields = ('order_number', 'date',
                        'delivery_cost', 'order_total',
-                       'grand_total', 'orignal_bag', 
+                       'grand_total', 'orignal_bag',
                        'stripe_pid')
 
     fields = ('order_number', 'date', 'full_name',
@@ -28,5 +28,6 @@ class OrderAdmin(admin.ModelAdmin):
 
     # reverse date to put most recent order at the top
     ordering = ('-date',)
+
 
 admin.site.register(Order, OrderAdmin)

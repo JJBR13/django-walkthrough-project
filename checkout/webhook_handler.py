@@ -72,7 +72,7 @@ class StripeWH_Handler:
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
-            # Order exists 
+            # Order exists
             if order_exists:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
