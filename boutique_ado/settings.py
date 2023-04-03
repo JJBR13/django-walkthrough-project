@@ -22,7 +22,7 @@ SECRET_KEY = 'p@ei#69*b*zz3u4yie-$()@cy^l(+x9&@6ypx+r0lm(3%_9hr7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -88,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-MESSAGES_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -174,3 +174,4 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
