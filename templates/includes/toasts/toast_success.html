@@ -19,9 +19,13 @@
             <div class="class bag-notification-wrapper">
                 {% for item in bag_items %}
                     <div class="class row">
-                        <div class="class col-3 my-1">
-                            <img src="{{ item.product.image.url }}" alt="" class="class w-100">
-                        </div>
+                        {% if item.product.image %}
+                            <div class="class col-3 my-1">
+                                <img src="{{ item.product.image.url }}" class="w-100" alt=" {{ item.product.name }} ">
+                        {% else %}
+                                <img src="{{ MEDIA_URL }}noimage.png" class="w-100" alt="{{ item.product.name }}">
+                        {% endif %}
+                            </div>
                         <div class="class col-9">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
